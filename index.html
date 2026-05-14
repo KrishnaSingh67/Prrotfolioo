@@ -1,188 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>krishna singh- Developer protfolio</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="utility.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishna Singh - Java Developer Portfolio</title>
+  <meta name="description" content="Java Developer portfolio showcasing backend systems, microservices, Spring Boot expertise, and cloud-native architecture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body class="dark-mode">
 
-<body>
-    <header>
-        <nav>
-            <div class="left">Krishna's Protfolio</div>
-            <div class="right">
-                <ul>
-                    <li> <a href="#home">Home </a></li>
-                    <li> <a href="#about">About </a></li>
-                    <li> <a href="#contact">Contact Me</a></li>
-                </ul>
-            </div>
+  <!-- â”€â”€ LOADING SCREEN â”€â”€ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">KS</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text mono">> Initializing portfolio...</p>
+    </div>
+  </div>
 
-        </nav>
-    </header>
+  <!-- â”€â”€ BACKGROUND ORBS â”€â”€ -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
 
-    <main id="home">
-        <section class="fristSection">
-            <div class="leftsection">
-                <!-- <img src="profecional.jpg" alt="">   // set this image in the background -->
-                <div> Hey, I am <span class="golder">Krishna Singh</span>
-                    <p> A passionate Frontend Developer</p>
-                    <span id="element"></span>
-                </div>
-                <div class="buttons">
-                    <button class=" btn1">Download Resume</button>
-                    <button class="btn">Github</button>
-                </div>
-            </div>
-            <div class="rightsection">
-                <img src="imgi.webp" alt="image">
-            </div>
-        </section>
-        <section id="about" class="about">
-            <h1>About Me</h1>
-            <p>
-                Hi, I'm <strong>Krishna Singh</strong>, a passionate <strong>Frontend Developer</strong> who loves
-                turning ideas into interactive and user-friendly web experiences.
-                My goal is to create impactful digital solutions and grow as a developer while contributing to
-                real-world projects.
-            </p>
+  <!-- â”€â”€ NAVBAR â”€â”€ -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-logo-link">KS<span class="accent">.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#stack" class="nav-link">Stack</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Achivement</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+          <span class="material-symbols-outlined icon-sun">light_mode</span>
+          <span class="material-symbols-outlined icon-moon">dark_mode</span>
+        </button>
+        <button class="nav-cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-        </section>
-        <hr>
-        <h1 class="cs">Skills</h1>
-        <section class="skill" id="skill">
-            <ul>
-                <li>JAVA <img src="skills/java.png" alt=""> </li>
-                <li> JavaScript <img src="skills/js.png" alt=""> </li>
-                <li>HTML <img src="skills/html.png" alt=""> </li>
-                <li>CSS <img src="skills/css.png" alt=""> </li>
-                <li>React.js <img src="skills/react.png" alt=""> </li>
-                <li>Tailwind Css <img src="skills/tailwind.png" alt=""> </li>
-                <li>Vs Code <img src="skills/vs.png" alt=""> </li>
-                <li>Github <img src="skills/github .png" alt=""> </li>
-                <li>SQL <img src="skills/sql.png" alt=""></li>
-                <li>DSA <img src="skills/dsa .png" alt=""> </li>
-            </ul>
-        </section>
-        <hr>
-        <h1 class="cs">Projects</h1>
-        <section id="project" class="secondsection">
+  <main>
 
-            <div class="card ">
-                <h3>Pulse Play</h3>
-                <p>A responsive music website built with HTML, CSS, and JS.</p>
-                <button><a href="https://github.com/KrishnaSingh67/Pulse-Play">View Code</a> </button>
-            </div>
-            <div class="card ">
-                <h3>UltraEdit</h3>
-                <p>A responsive website clone built with HTML, CSS, and JS.</p>
-                <button> <a href="https://github.com/KrishnaSingh67/ultraedit">View Code </a></button>
-            </div>
-            <div class="card ">
-                <h3>Netflix Clone</h3>
-                <p>A responsive website clone built with HTML, CSS, and JS.</p>
-                <button> <a href="https://github.com/KrishnaSingh67/netflix-clone">View Code</a></button>
-            </div>
-            <div class="card ">
-                <h3>My Protfolio</h3>
-                <p>A responsive protfolio built with HTML, CSS, and JS.</p>
-                <button> <a href="https://github.com/KrishnaSingh67/protfolio">View Code </a></button>
-            </div>
-        </section>
-        <hr>
-        <h1 class="cs"> My Certificates </h1>
-        <section class="thirdsection">
-            <!-- <iframe src="asset/resume.pdf" frameborder="1"></iframe> -->
-            <!-- certificate 1 -->
-            <div class="card ">
-                <h3>DSA</h3>
-                <p>Issued by Physics Wallah</p>
-                <!-- <button> <a href="certificate/dsa certificate by pw.pdf" target="_blank">View Certificate </a></button> -->
-                <button class="btn " onclick="openPopup('certificate/dsa.png')">View Certificate</button>
-            </div>
-
-            <div class="card ">
-                <h3>HTML CSS</h3>
-                <p>Issued by Coursera</p>
-                <!-- <button> <a href="certificate/htmalcss cetificate.pdf" target="_blank">View Certificate </a></button> -->
-                <button class="btn " onclick="openPopup('certificate/htmlcss.png')">View Certificate</button>
-            </div>
-            <div class="card ">
-                <h3>Excel</h3>
-                <p>Issued by Coursera</p>
-                <!-- <button> <a href="certificate/excel.png" target="_blank"></button>View Certificate </a></button> -->
-                <button class="btn " onclick="openPopup('certificate/excel.png')">View Certificate</button>
-            </div>
-
-            </div>
-
-        </section>
-        <!-- Popup -->
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <button class="close-popup" onclick="closePopup()">Close</button>
-                <!-- <div id="popupFrame"></div> -->
-                <img id="popupFrame" src="" alt="Certificate">
-                <!-- <iframe id="popupFrame"></iframe> -->
-            </div>
+    <!-- â”€â”€ HERO â”€â”€ -->
+    <section id="hero" class="section hero-section">
+      <div class="container">
+      <div class="hero-content">
+        <p class="mono eyebrow" id="hero-eyebrow">> JAVA_DEVELOPER.init();</p>
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Krishna Singh</span>,<br/>
+          a <span id="typed-text" class="accent-text"></span><span class="cursor-blink">|</span>
+        </h1>
+        <p class="hero-sub">Building scalable backend systems and efficient applications through architectural precision and modern logic.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <span class="material-symbols-outlined">terminal</span> View Projects
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <span class="material-symbols-outlined">alternate_email</span> Contact Me
+          </a>
         </div>
-        <hr>
-        <section class="fourthsection" id="contact">
-            <h3 class="cs">Contacts</h1>
-                <span>Mobile No. -- 9005767509</span>
-                <span>eMail -- krishna22work.9@gmail.com</span>
+        <div class="hero-terminal glass-card">
+          <div class="terminal-header">
+            <span class="t-dot red"></span>
+            <span class="t-dot yellow"></span>
+            <span class="t-dot green"></span>
+            <span class="mono t-title">architect@logic:~$</span>
+          </div>
+          <div class="terminal-body mono" id="terminal-lines">
+            <p class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">Loading Java Development Kit...</span></p>
+            <p class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">Initializing Spring Boot Framework...</span></p>
+            <p class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">Connecting API Endpoints...</span></p>
+            <p class="t-line t-success">READY_TO_DEPLOY: ["Java", "Spring Boot", "APIs", "DSA", "Cloud"]</p>
+          </div>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/KrishnaSingh67" target="_blank" rel="noopener" class="social-link mono" aria-label="GitHub">[ CODE_BASE ]</a>
+          <a href="https://www.linkedin.com/in/krishna-singh-450b552b4/" target="_blank" rel="noopener" class="social-link mono" aria-label="LinkedIn">[ CONNECT_LINKEDIN ]</a>
+        </div>
+      </div>
+      </div><!-- /.container -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span class="mono">scroll</span>
+      </div>
+    </section>
+
+    <!-- â”€â”€ ABOUT â”€â”€ -->
+    <section id="about" class="section">
+      <div class="container reveal">
+        <span class="section-eyebrow mono">// 01. about</span>
+        <h2 class="section-title">I craft resilient digital <span class="gradient-text">architectures</span> with Java.</h2>
+
+        <div class="about-grid">
+
+          <!-- Profile Photo -->
+          <div class="about-photo-col">
+            <div class="about-photo-wrap">
+              <div class="photo-ring"></div>
+              <img
+                src="profile.png"
+                alt="Krishna Singh â€” Java Developer"
+                class="about-photo"
+                loading="lazy"
+              />
+              <div class="photo-badge glass-card mono">
+                <span class="badge-dot"></span> Open to Work
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio + Stats -->
+          <div class="about-text">
+            <p>As a Java Developer, I specialize in building high-concurrency systems and microservices that power enterprise-grade applications. My philosophy centers on structural integrity and performance optimization.</p>
+            <p>I thrive in environments where clean code meets complex business logic  from designing RESTful APIs .</p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-num gradient-text">0+</span>
+                <span class="stat-label mono">Years Exp.</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num gradient-text">7+</span>
+                <span class="stat-label mono">Projects</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num gradient-text">8+</span>
+                <span class="stat-label mono">Technologies</span>
+              </div>
+            </div>
+            <div class="about-actions">
+              <a href="#contact" class="btn btn-primary">Get In Touch</a>
+              <a href="#" download class="btn btn-ghost">Download CV</a>
+            </div>
+          </div>
+
+          <!-- Code Card -->
+          <div class="about-code glass-card">
+            <div class="terminal-header">
+              <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+              <span class="mono t-title">Profile.java</span>
+            </div>
+            <pre class="code-block mono"><code><span class="c-keyword">public class</span> <span class="c-class">KrishnaSingh</span> {
+
+  <span class="c-keyword">private final</span> <span class="c-type">String</span> role
+    <span class="c-op">=</span> <span class="c-str">"Java Developer"</span>;
+  <span class="c-keyword">private final</span> <span class="c-type">String</span> focus
+    <span class="c-op">=</span> <span class="c-str">"Backend Systems"</span>;
+  <span class="c-keyword">private final</span> <span class="c-type">boolean</span>
+    openToWork <span class="c-op">=</span> <span class="c-bool">true</span>;
+
+  <span class="c-keyword">public</span> <span class="c-type">String[]</span> getSkills() {
+    <span class="c-keyword">return new</span> <span class="c-type">String</span>[] {
+      <span class="c-str">"Java"</span>, <span class="c-str">"Spring Boot"</span>,
+      <span class="c-str">"Microservices"</span>, <span class="c-str">"AWS"</span>,
+      <span class="c-str">"Docker"</span>, <span class="c-str">"PostgreSQL"</span>
+    };
+  }
+}</code></pre>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- â”€â”€ SKILLS / STACK â”€â”€ -->
+    <section id="stack" class="section">
+      <div class="container reveal">
+        <span class="section-eyebrow mono">// 02. technical arsenal</span>
+        <h2 class="section-title">What I <span class="gradient-text">Build With</span></h2>
+        <div class="skills-grid">
+
+          <div class="skill-card glass-card tilt-card">
+            <div class="skill-icon"><span class="material-symbols-outlined">local_cafe</span></div>
+            <h3 class="skill-name">Java Enterprise</h3>
+            <p class="skill-desc">Multi-threading, JVM Tuning &amp; Functional paradigms.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            <div class="skill-tags">
+              <span class="tag mono">Java 17+</span><span class="tag mono">JVM</span><span class="tag mono">Streams</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card tilt-card">
+            <div class="skill-icon"><span class="material-symbols-outlined">eco</span></div>
+            <h3 class="skill-name">Spring Framework</h3>
+            <p class="skill-desc">Microservices, Security, Cloud Streams &amp; Data.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            <div class="skill-tags">
+              <span class="tag mono">Spring Boot</span><span class="tag mono">Security</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card tilt-card">
+            <div class="skill-icon"><span class="material-symbols-outlined">database</span></div>
+            <h3 class="skill-name">Database Logic</h3>
+            <p class="skill-desc">Optimization, Indexing &amp; ACID consistency.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            <div class="skill-tags">
+              <span class="tag mono">MySQL</span><span class="tag mono">Redis</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card tilt-card">
+            <div class="skill-icon"><span class="material-symbols-outlined">bolt</span></div>
+            <h3 class="skill-name">Distributed APIs</h3>
+            <p class="skill-desc">RESTful protocols, GraphQL &amp; Webhooks.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            <div class="skill-tags">
+              <span class="tag mono">REST</span><span class="tag mono">Kafka</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card tilt-card">
+            <div class="skill-icon"><span class="material-symbols-outlined">psychology</span></div>
+            <h3 class="skill-name">DSA Mastery</h3>
+            <p class="skill-desc">Algorithmic complexity &amp; Advanced data structures.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            <div class="skill-tags">
+              <span class="tag mono">Algorithms</span><span class="tag mono">LeetCode</span><span class="tag mono">Big-O</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card tilt-card">
+            <div class="skill-icon"><span class="material-symbols-outlined">cloud</span></div>
+            <h3 class="skill-name">Frontend</h3>
+            <p class="skill-desc">HTML,CSS,JavaScript and React, Tailwind.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            <div class="skill-tags">
+              <span class="tag mono">HTML</span><span class="tag mono">CSS</span><span class="tag mono">React.js</span><span class="tag mono">Tailwind</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS  -->
+    <section id="projects" class="section">
+      <div class="container reveal">
+        <span class="section-eyebrow mono">// 03. projects</span>
+        <h2 class="section-title">What I've <span class="gradient-text">Shipped</span></h2>
+        <div class="projects-grid">
+
+          <article class="project-card glass-card tilt-card featured">
+            <div class="project-meta">
+              <span class="tag mono project-tag">Featured</span>
+              <span class="tag mono">Spring Boot</span>
+              <span class="tag mono">Java</span>
+              <span class="tag mono">SQL</span>
+            </div>
+            <h3 class="project-name">Financial-Data-Processing-and-Access-Control-Backend </h3>
+            <p class="project-desc">robust backend system built with Spring Boot 3.x that provides secure financial data management through JWT-based authentication and Role-Based Access Control (RBAC).</p>
+            <div class="project-footer">
+              <a href="https://github.com/KrishnaSingh67/Financial-Data-Processing-and-Access-Control-Backend" class="btn-link mono"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; margin-right: 4px;">code</span> GitHub</a>
+            </div>
+          </article>
+
+  <article class="project-card glass-card tilt-card">
+            <div class="project-meta">
+              <span class="tag mono">JAVA</span>
+              <span class="tag mono">SpringBoot</span>
+              <span class="tag mono">Rest API</span>
+              <span class="tag mono">SQL</span>
+
+            </div>
+            <h3 class="project-name"> E-Library Management System </h3>
+            <p class="project-desc">Developed backend APIs for managing books and users  , Integrated MySQL database using JPA/Hibernate.</p>
+            <div class="project-footer">
+              <a href="https://github.com/KrishnaSingh67/hotel-booking" class="btn-link mono"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; margin-right: 4px;">code</span> GitHub</a>
+            </div>
+          </article>
+
+
+          <article class="project-card glass-card tilt-card">
+            <div class="project-meta">
+              <span class="tag mono">React.js</span>
+              <span class="tag mono">Javascript</span>
+              <span class="tag mono">css tailwind</span>
+            </div>
+            <h3 class="project-name">hotel-booking </h3>
+            <p class="project-desc">used the technology like html,css react for the creating of the hotel booking managment it focus on the frontend only.</p>
+            <div class="project-footer">
+              <a href="https://github.com/KrishnaSingh67/hotel-booking" class="btn-link mono"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; margin-right: 4px;">code</span> GitHub</a>
+            </div>
+          </article>
+
+        
+
+          <article class="project-card glass-card tilt-card">
+            <div class="project-meta">
+              <span class="tag mono">HTML</span>
+              <span class="tag mono">Javascript</span>
+              <span class="tag mono">CSS</span>
+            </div>
+            <h3 class="project-name">Pulse-Play </h3>
+            <p class="project-desc">This is the music website named as the pulse play using the technologies like html, CSS, JavaScript in this we have to use the different song folder.</p>
+            <div class="project-footer">
+              <a href="https://github.com/KrishnaSingh67/Pulse-Play" class="btn-link mono"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; margin-right: 4px;">code</span> GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card glass-card tilt-card">
+            <div class="project-meta">
+              <span class="tag mono">Python</span>
+              <span class="tag mono">OpenCV</span>
+              <span class="tag mono">SQL</span>
+              <span class="tag mono">AI</span>
+            </div>
+            <h3 class="project-name">AI Surveillance & Face Recognition</h3>
+            <p class="project-desc">Award-winning hackathon project (2nd Prize) featuring real-time face detection and secure security logging. Focused on privacy-preserving surveillance and rapid response logic.</p>
+            <div class="project-footer">
+              <span class="tag mono" style="background: rgba(0, 255, 170, 0.1); color: var(--accent); border: 1px solid var(--accent);">Hackathon Winner</span>
+            </div>
+          </article>
+
+
+
+          <article class="project-card glass-card cta-card">
+            <div class="cta-inner">
+              <pre class="mono cta-code"><code><span class="c-keyword">public class</span> <span class="c-class">Architect</span> {
+  <span class="c-keyword">public static void</span> main(
+    String[] args) {
+    Logic core <span class="c-op">=</span> <span class="c-keyword">new</span> Logic();
+    core.init();
+    <span class="c-comment">// System ready...</span>
+  }
+}</code></pre>
+              <p>Exploring the full repository of technical documentation, architectural patterns, and experimental Java frameworks.</p>
+              <a href="https://github.com/KrishnaSingh67" target="_blank" rel="noopener" class="btn btn-primary">View All on GitHub</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- â”€â”€ EXPERIENCE â”€â”€ -->
+    <section id="experience" class="section">
+      <div class="container reveal">
+        <span class="section-eyebrow mono">// 04. experience</span>
+        <h2 class="section-title">Architectural <span class="gradient-text">Journey</span></h2>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot pulse"></div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header">
                 <div>
-
-                    <a href="https://www.linkedin.com/in/krishna-singh-450b552b4/"> <img src="asset/linked.png" alt="">
-                        Linked</a>
-                    <a href="https://github.com/KrishnaSingh67"> <img src="skills/github .png" alt=""> Github</a>
-                    <a href="https://www.instagram.com/codder_67/"> <img src="asset/insta.png" alt=""> Instagram</a>
-                    <a href="https://www.youtube.com/@Codder-67/featured"> <img src="asset/youtube.png" alt="">
-                        Youtube</a>
+                  <h3 class="timeline-role">2nd Prize - Hackathon Winner</h3>
+                  <p class="timeline-company mono">College Of Engineering Bhubaneswar</p>
                 </div>
+                <span class="timeline-date mono">2026</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Developed "AI Surveillance & Face Recognition Security," a robust solution combining real-time detection with secure database logging.</li>
+                <li>Awarded official Prize Certificate for technical excellence and innovative problem-solving.</li>
+                <li>Collaborated in a multidisciplinary team and successfully presented the end-to-end solution to a panel of expert judges.</li>
+                <li>Demonstrated strong frontend integration, backend logic, and complex database management.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tag mono">AI Security</span><span class="tag mono">Face Recognition</span><span class="tag mono">Database</span>
+              </div>
+            </div>
+          </div>
 
-        </section>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Hackathon Finalist</h3>
+                  <p class="timeline-company mono">Regional Tech Innovation Summit</p>
+                </div>
+                <span class="timeline-date mono">2025</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Focused on refining system architecture and improving code efficiency in each consecutive competition.</li>
+                <li>Built a high-performance Java application for distributed data processing within 24 hours.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tag mono">Java</span><span class="tag mono">System Design</span><span class="tag mono">Optimization</span>
+              </div>
+            </div>
+          </div>
 
-    </main>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Academic Projects & Research</h3>
+                  <p class="timeline-company mono">Core Development Journey</p>
+                </div>
+                <span class="timeline-date mono">2025 - 2026</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Consistently applied academic learning to solve real-world problems through competitive coding and project building.</li>
+                <li>Mastered the fundamentals of Java, Spring Boot, and modern UI frameworks through iterative development.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tag mono">DSA</span><span class="tag mono">Spring Boot</span><span class="tag mono">Clean Code</span>
+              </div>
+            </div>
+          </div>
 
-    <footer>
-        <span>Krishna Protfolio</span>
-        <div class="footer">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
         </div>
-        <div class="footer">
-            <ul>
-                <li><a href="/">Certificate</a></li>
-                <li><a href="#project">Project</a></li>
-                <li><a href="#skill">Skill</a></li>
-            </ul>
+      </div>
+    </section>
+
+    <!-- â”€â”€ CONTACT â”€â”€ -->
+    <section id="contact" class="section">
+      <div class="container reveal">
+        <span class="section-eyebrow mono">// 05. contact</span>
+        <h2 class="section-title">Let's Build the <span class="gradient-text">Future of Logic</span></h2>
+        <p class="contact-sub">Whether you're looking for a Java developer or want to discuss distributed system design patterns, my terminal is always open.</p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item glass-card">
+              <span class="contact-icon material-symbols-outlined">mail</span>
+              <div>
+                <p class="mono contact-label">EMAIL_PRIMARY</p>
+                <a href="mailto:krishna22work.9@gmail.com" class="contact-val">krishna22work.9@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item glass-card">
+              <span class="contact-icon material-symbols-outlined">location_on</span>
+              <div>
+                <p class="mono contact-label">BASE_STATION</p>
+                <p class="contact-val">India / Remote_Node</p>
+              </div>
+            </div>
+            <div class="contact-item glass-card">
+              <span class="contact-icon material-symbols-outlined">check_circle</span>
+              <div>
+                <p class="mono contact-label">STATUS</p>
+                <p class="contact-val accent-green">READY_FOR_DISPATCH</p>
+              </div>
+            </div>
+            <div class="contact-socials">
+              <a href="https://github.com/KrishnaSingh67" target="_blank" rel="noopener" class="btn btn-ghost">{ } GitHub</a>
+              <a href="https://www.linkedin.com/in/krishna-singh-450b552b4/" target="_blank" rel="noopener" class="btn btn-ghost">.in LinkedIn</a>
+            </div>
+          </div>
+
+          <form class="contact-form glass-card" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name" class="mono form-label">YOUR_NAME</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Alex Johnson" required />
+            </div>
+            <div class="form-group">
+              <label for="email" class="mono form-label">YOUR_EMAIL</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="alex@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject" class="mono form-label">SUBJECT</label>
+              <input type="text" id="subject" name="subject" class="form-input" placeholder="Internship Opportunity" />
+            </div>
+            <div class="form-group">
+              <label for="message" class="mono form-label">MESSAGE</label>
+              <textarea id="message" name="message" class="form-input form-textarea" rows="4" placeholder="Let's discuss your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" id="form-submit">
+              <span class="material-symbols-outlined">send</span> Send Message
+            </button>
+            <p class="form-feedback mono" id="form-feedback"></p>
+          </form>
         </div>
-        <!-- <div class="footer">
-            <ul>
-                <li><a href="/"></a></li>
-                <li><a href="/"></a></li>
-                <li><a href="/"></a></li>
-            </ul>
-        </div> -->
+      </div>
+    </section>
 
-    </footer>
-    <!-- Load library from the CDN -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-    </style>
-    <script src="main.js"></script>
+  </main>
 
+  <!-- â”€â”€ FOOTER â”€â”€ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="mono footer-copy">Â© 2025 Krishna Singh â€” <span class="accent-text">Built with precision</span></p>
+      <a href="#hero" class="footer-top mono" id="scroll-top" aria-label="Back to top">[ TOP_SCROLL ⬆ ]</a>
+    </div>
+  </footer>
 
+  <script src="script.js"></script>
 </body>
-
 </html>
+
+
