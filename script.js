@@ -164,9 +164,10 @@ if (form) {
     e.preventDefault();
     const name    = form.name.value.trim();
     const email   = form.email.value.trim();
+    const title   = form.title.value.trim();
     const message = form.message.value.trim();
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !title) {
       showFeedback('> ERROR: All required fields must be filled.', 'error');
       return;
     }
@@ -179,12 +180,38 @@ if (form) {
     submitBtn.textContent = '> Sending...';
 
     // Simulate async send
-    await new Promise(r => setTimeout(r, 1500));
+    // await new Promise(r => setTimeout(r, 1500));
+    try{
+
+    await emailjs.send(
+    "service_y08osiy",  //service id 
+    "template_ulxzhq3",  // templet id
+    {
+        // name: name,
+        // email: email,
+        // title: title,
+        // message: message
+        name,
+        email,
+        title,
+        message
+    }
+);
 
     showFeedback('> MESSAGE_SENT: Response incoming within 24h.', 'success');
     form.reset();
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = '<span class="mono">&gt;_</span> Send Message';
+    // submitBtn.disabled = false;
+    // submitBtn.innerHTML = '<span class="mono">&gt;_</span> Send Message';
+  }
+  catch(error){
+    console.error("EmailJs error: ",error);
+    showFeedback("> ERROR: Failed to send message.", "error");
+}
+finally{
+  submitBtn.disabled=false;
+  submitBtn.innerHTML =
+         '<span class ="mono">&gt;_</span> Send Message';
+}
   });
 }
 
