@@ -179,18 +179,12 @@ if (form) {
     submitBtn.disabled = true;
     submitBtn.textContent = '> Sending...';
 
-    // Simulate async send
-    // await new Promise(r => setTimeout(r, 1500));
     try{
 
     await emailjs.send(
     "service_y08osiy",  //service id 
     "template_ulxzhq3",  // templet id
     {
-        // name: name,
-        // email: email,
-        // title: title,
-        // message: message
         name,
         email,
         title,
@@ -200,9 +194,7 @@ if (form) {
 
     showFeedback('> MESSAGE_SENT: Response incoming within 24h.', 'success');
     form.reset();
-    // submitBtn.disabled = false;
-    // submitBtn.innerHTML = '<span class="mono">&gt;_</span> Send Message';
-  }
+    }
   catch(error){
     console.error("EmailJs error: ",error);
     showFeedback("> ERROR: Failed to send message.", "error");
@@ -258,5 +250,242 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
+    const modal = document.getElementById('certificate-modal');
+    if (modal) modal.classList.remove('active');
   }
 });
+
+/* ── 16. CERTIFICATES SYSTEM ── */
+const certificateData = [
+  {
+    id: 'java-dev-1',
+    title: 'Java Backend dvelopment with Ai',
+    issuer: 'GeeksforGeeks',
+    date: '2026-06-15',
+    image: 'gfg.png',
+    icon: 'school',
+    category: 'java',
+    verifyUrl: 'https://media.geeksforgeeks.org/courses/certificates/397ad5db16c045e284e2bd4b556a3a9a.pdf'
+  },
+  {
+    id: 'Ai',
+    title: 'Automate (n8n)',
+    issuer: 'LinkedIn',
+    date: '2026-05-23',
+    image: 'n8n.png',
+    icon: 'military_tech',
+    category: 'Ai',
+    verifyUrl: 'https://www.linkedin.com/learning/certificates/18c0b39b5458f1b5e25950e8e217ef9170644503b3b79b11815b9711c8a36001'
+  },
+  {
+    id: 'Logics',
+    title: 'Data Structure and Algoritm',
+    issuer: 'Physics Wallah',
+    date: '2024-06-04',
+    image: 'dsa.png',
+    icon: 'cloud_circle',
+    category: 'Logics',
+    verifyUrl: 'https://pwskills.com/learn/certicate/36d3c5b3-012a-401d-91a3-a990c349af40'
+  },
+  {
+    id: 'Ai',
+    title: 'Generative Ai',
+    issuer: 'Cousera',
+    date: '2024-09-01',
+    image: 'generativeAi.png',
+    icon: 'code',
+    category: 'Ai',
+    verifyUrl: 'https://coursera.org/verify/YOOPMONB2GI3'
+  },
+  {
+    id: 'Ai',
+    title: 'Responsible AI: Applying AI Principles with Google cloud ',
+    issuer: 'Cousera',
+    date: '2024-09-08',
+    image: 'google7.png',
+    icon: 'architecture',
+    category: 'Ai',
+    verifyUrl: 'https://coursera.org/verify/H6Z13XTGGFS9'
+  },
+  {
+    id: 'Frontend',
+    title: 'HTML-CSS',
+    issuer: 'Cousera',
+    date: '2024-09-06',
+    image: 'htmlcss.png',
+    icon: 'star',
+    category: 'Frontend',
+    verifyUrl: 'https://coursera.org/verify/M3UL1G42995O'
+  },
+  {
+    id: 'Ai',
+    title: 'Introduction to Responsible AI',
+    issuer: 'Cousera',
+    date: '2024-09-08',
+    image: 'ResponsibleAi.png',
+    icon: 'star',
+    category: 'Ai',
+    verifyUrl: 'https://coursera.org/verify/M3UL1G42995O'
+  },
+  {
+    id: 'other-1',
+    title: 'Get Started with Spreadsheet Applications: Excel',
+    issuer: 'SkillUp EdTech',
+    date: '2024-09-09',
+    image: 'excel.png',
+    icon: 'star',
+    category: 'other',
+    verifyUrl: 'https://coursera.org/verify/HU9VP9RG817V'
+  }
+];
+
+// Initialize certificates
+function initCertificates() {
+  const grid = document.getElementById('certificate-grid');
+  const modal = document.getElementById('certificate-modal');
+  const modalClose = document.getElementById('modal-close');
+  const modalOverlay = document.getElementById('modal-overlay');
+  const searchInput = document.getElementById('cert-search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const seeAllBtn = document.getElementById('see-all-btn');
+
+  if (!grid) return;
+
+  let currentFilter = 'all';
+  let isExpanded = false;
+
+  // Render certificates
+  function renderCertificates(filter = 'all', search = '') {
+    grid.innerHTML = '';
+    const filtered = certificateData.filter(cert => {
+      const matchFilter = filter === 'all' || cert.category === filter;
+      const matchSearch = cert.title.toLowerCase().includes(search.toLowerCase()) ||
+                         cert.issuer.toLowerCase().includes(search.toLowerCase());
+      return matchFilter && matchSearch;
+    });
+
+    filtered.forEach((cert, index) => {
+      const card = document.createElement('div');
+      card.className = 'certificate-card reveal';
+      card.innerHTML = `
+        <div class="certificate-icon-wrapper">
+          <img src="assets/certificates/${cert.image}" alt="${cert.title}" class="certificate-floating-image" />
+        </div>
+        <div class="certificate-content">
+          <h3 class="certificate-title">${cert.title}</h3>
+          <p class="certificate-issuer">${cert.issuer}</p>
+          <p class="certificate-date">${new Date(cert.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+          <div class="certificate-actions">
+            <button class="cert-btn" data-id="${cert.id}" data-action="view" title="View full certificate">
+              <span class="material-symbols-outlined">image</span> View
+            </button>
+            <button class="cert-btn verify" data-url="${cert.verifyUrl}" data-action="verify" title="Verify certificate authenticity">
+              <span class="material-symbols-outlined">check_circle</span> Verify
+            </button>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+
+      // View button handler
+      card.querySelector('[data-action="view"]').addEventListener('click', () => {
+        showModal(cert);
+      });
+
+      // Verify button handler
+      card.querySelector('[data-action="verify"]').addEventListener('click', (e) => {
+        window.open(cert.verifyUrl, '_blank', 'noopener,noreferrer');
+      });
+    });
+
+    // Update reveal animation for new cards
+    document.querySelectorAll('.certificate-card.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    updateSeeAllButton(filtered.length);
+  }
+
+  // Show modal with certificate details
+  function showModal(cert) {
+    document.getElementById('modal-image').src = 'assets/certificates/' + cert.image;
+    document.getElementById('modal-image').alt = cert.title;
+    document.getElementById('modal-title').textContent = cert.title;
+    document.getElementById('modal-issuer').textContent = `${cert.issuer} • ${new Date(cert.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}`;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close modal handler
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Update see all button visibility
+  function updateSeeAllButton(totalCerts) {
+    const hiddenCards = grid.querySelectorAll('.certificate-card.hidden').length;
+    const visibleCards = grid.querySelectorAll('.certificate-card:not(.hidden)').length;
+    
+    if (isExpanded || visibleCards <= 3) {
+      seeAllBtn.classList.add('hidden');
+    } else {
+      seeAllBtn.classList.remove('hidden');
+    }
+  }
+
+  // Search handler
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const search = e.target.value.trim();
+      renderCertificates(currentFilter, search);
+    });
+  }
+
+  // Filter buttons handler
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      searchInput.value = '';
+      renderCertificates(currentFilter, '');
+      isExpanded = false;
+      grid.classList.remove('expanded');
+      seeAllBtn.classList.remove('expanded');
+    });
+  });
+
+  // See all button handler
+  if (seeAllBtn) {
+    seeAllBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      if (isExpanded) {
+        grid.classList.add('expanded');
+        seeAllBtn.classList.add('expanded');
+      } else {
+        grid.classList.remove('expanded');
+        seeAllBtn.classList.remove('expanded');
+      }
+    });
+  }
+
+  // Modal close handlers
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+  }
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', closeModal);
+  }
+
+  // Initial render
+  renderCertificates();
+}
+
+// Call when DOM is ready
+document.addEventListener('DOMContentLoaded', initCertificates);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCertificates);
+} else {
+  initCertificates();
+}

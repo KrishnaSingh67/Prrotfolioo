@@ -38,6 +38,7 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#stack" class="nav-link">Stack</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certificate" class="nav-link">Certificates</a></li>
         <li><a href="#experience" class="nav-link">Achivement</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -348,6 +349,64 @@
       </div>
     </section>
 
+
+    <!-- ── CERTIFICATES ── -->
+    <section id="certificate" class="section">
+      <div class="container reveal">
+        <span class="section-eyebrow mono">// 03. credentials</span>
+        <h2 class="section-title">Professional <span class="gradient-text">Certifications</span></h2>
+        
+        <!-- Certificate Filters -->
+        <div class="certificate-controls">
+          <div class="filter-group">
+            <input 
+              type="text" 
+              id="cert-search" 
+              class="cert-search-input" 
+              placeholder="Search certificates..." 
+              aria-label="Search certificates"
+            />
+            <span class="material-symbols-outlined search-icon">search</span>
+          </div>
+          <div class="filter-tags">
+            <button class="filter-btn active" data-filter="all" aria-label="Show all certificates">All</button>
+            <button class="filter-btn" data-filter="java" aria-label="Filter Java certificates">Java</button>
+            <button class="filter-btn" data-filter="Logics" aria-label="Filter logic  certificates">Logics</button>
+            <!-- <button class="filter-btn" data-filter="aws" aria-label="Filter AWS certificates">AWS</button> -->
+            <button class="filter-btn" data-filter="Ai" aria-label="Filter Ai certificates">Ai</button>
+            <button class="filter-btn" data-filter="Frontend" aria-label="Filter frontend certificates">Frontend</button>
+            <button class="filter-btn" data-filter="other" aria-label="Filter other certificates">Other</button>
+          </div>
+        </div>
+
+        <!-- Certificate Grid Container -->
+        <div class="certificate-grid-wrapper">
+          <div class="certificate-grid" id="certificate-grid">
+            <!-- Certificate cards will be inserted here by JavaScript -->
+          </div>
+          <button class="see-all-btn" id="see-all-btn" aria-label="Show all certificates">
+            <span>See All Certificates</span>
+            <span class="material-symbols-outlined">expand_more</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div class="certificate-modal" id="certificate-modal" role="dialog" aria-hidden="true">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close" aria-label="Close certificate">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <img id="modal-image" src="" alt="Certificate preview" class="modal-image" />
+        <div class="modal-info">
+          <h3 id="modal-title"></h3>
+          <p id="modal-issuer"></p>
+        </div>
+      </div>
+    </div>
+    
     <!-- â”€â”€ EXPERIENCE â”€â”€ -->
     <section id="experience" class="section">
       <div class="container reveal">
